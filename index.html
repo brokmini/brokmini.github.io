@@ -1,0 +1,109 @@
+<html>
+<head>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<link rel="stylesheet" href="styles.css">
+	<style type="text/css">
+	.btns {
+			position: relative;
+			top:300px;
+			left:850px;
+			}
+</style>
+</head>
+<body>
+<p1>   A picture is worth a 1000 words! </p1>
+  <div class="AbtMe"> </div>
+
+  <script>
+  var div = d3.select(".AbtMe").append("div").attr("class", "toolTip");
+  var dataset = [
+  	{ name: 'COMS', total: 10,desc:"Pursuing a Masters in Computer Science from Iowa State University"},
+  	{ name: 'TA', total:10,desc:"Software Construction & UI" },
+  	{ name: 'Industry Exp', total: 10, desc:"Product Analyst & Technical Support Engg at Temenos"},
+  	{ name: 'Team player', total:10,desc:"Together Everyone Achieves More"},
+    { name: 'Projects', total:10,desc:"Group & Individual projects"},
+    { name: 'RA', total:10,desc:"Improvization of existing Web Portal"},
+    { name: 'Passionate learner', total:10,desc:"Be a Lifelong Student"}
+  ];
+
+  var width = 500,
+      height = 400,
+      radius = Math.min(width, height) / 2;
+
+  var color = d3.scale.ordinal()
+    //  .range(["#96ceb4", "#ffeead", "#ffcc5c", "#ff6f69", "#d9ad7c","#80ced6","#f2ae72"]);
+      .range(["#d6cbd3","#eca1a6","#bdcebe","#ada397","#b7d7e8","#b0aac0","#ddeedd"]);
+
+  var arc = d3.svg.arc()
+      .outerRadius(radius - 10)
+      .innerRadius(radius - 70);
+
+  var pie = d3.layout.pie()
+      .sort(null)
+  	  .startAngle(1.1*Math.PI)
+      .endAngle(3.1*Math.PI)
+      .value(function(d) { return d.total; });
+
+  var svg = d3.select(".AbtMe").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+   var g = svg.selectAll(".arc")
+        .data(pie(dataset))
+      .enter().append("g")
+        .attr("class", "arc");
+
+    g.append("path")
+  	.style("fill", function(d) { return color(d.data.name); })
+    .transition().delay(function(d,i) {
+  	 return i * 350; }).duration(350)
+  	.attrTween('d', function(d) {
+  		  var i = d3.interpolate(d.startAngle+0.1, d.endAngle);
+  		  return function(t) {
+  			d.endAngle = i(t);
+  			return arc(d)
+  			}
+  		});
+
+    g.append("text")
+        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+        .style("font-family","Goudy Old Style, Garamond, Big Caslon, Times New Roman")
+        .style("font-size","17px")
+        .attr("dy", ".35em")
+  	    .transition()
+  	    .delay(1000)
+        .text(function(d) { return d.data.name; });
+
+    g.append("text")
+         .style("fill","white")
+         .style("font-family","Papyrus,fantasy")
+         .style("font-size","40px")
+         .style("font-weight","bold")
+      	 .text("ABI");
+
+  	d3.selectAll("path").on("mousemove", function(d) {
+  	    div.style("left", d3.event.pageX-80+"px");
+  		  div.style("top", d3.event.pageY-80+"px");
+  		  div.style("display", "inline-block");
+        div.html(d.data.desc);
+  });
+
+  d3.selectAll("path").on("mouseout", function(d){
+      div.style("display", "none");
+  });
+
+
+  function type(d) {
+    d.total = +d.total;
+    return d;
+  }
+
+
+  </script>
+
+  <button class="btns" onclick="window.location.replace('visual1.html')"><span>Ready?</span></button>
+</body>
+</html>

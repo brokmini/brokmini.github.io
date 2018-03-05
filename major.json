@@ -1,0 +1,118 @@
+{
+ "name": "major",
+ "children": [
+  {
+   "name": "Arts & Humanities",
+   "children": [
+    {
+     "name": "Arts",
+     "children": [
+      {"name": "Performing Arts", "size": 8},
+      {"name": "Visual Arts", "size": 12},
+      {"name": "3D Forms", "size": 67},
+      {"name": "Digital Art", "size": 33}
+      ]
+    },
+    {
+     "name": "Misc ",
+     "children": [
+      {"name": "Philosophy", "size": 34},
+      {"name": "Physcology", "size": 73},
+      {"name": "Political Science", "size": 73}
+     ]
+   },
+    {
+     "name": "Language",
+     "children": [
+      {"name": "Literature", "size": 34},
+      {"name": "Poetry", "size": 73}
+     ]
+    }
+   ]
+  },
+
+
+  {
+    "name":"Health & Medicine",
+    "children": [
+      {"name":"Nursing and Care", "size": 70},
+      {"name":"Surgeons",
+        "children":[
+          {"name":"Dental", "size": 10},
+          {"name":"Neuro", "size": 23},
+          {"name":"Cardio", "size": 34},
+          {"name":"Orthopaedic", "size": 8}
+        ]
+      },
+      {"name":"Research", "size": 50}
+    ]
+  },
+
+  {
+   "name": "Science and Technology",
+   "children": [
+    {
+     "name": "Physics",
+     "children": [
+      {"name": "Nuclear Physics", "size": 13},
+      {"name": "Geo Physics", "size": 56},
+      {"name": "Astronomy", "size": 6},
+      {"name": "Engineering Physics", "size": 9}
+      ]
+    },
+    {
+     "name": "Chemistry",
+     "children": [
+      {"name": "Bio Chem", "size": 92},
+      {"name": "Forensic Chemistry", "size": 13},
+      {"name": "Chem Engg", "size": 7}
+     ]
+   },
+   {
+    "name": "Engineering",
+    "children": [
+     {"name": "Electrical", "size": 81},
+     {"name": "Computer Science", "size": 154},
+     {"name": "Industrial", "size": 46},
+     {"name": "Electonics", "size": 93},
+     {"name": "Production", "size": 33},
+     {"name": "Mechanical", "size": 183}
+    ]
+  },
+  {
+   "name": "Agriculture",
+   "children": [
+    {"name": "Agri Studies", "size": 34},
+    {"name": "Agronomy", "size": 73},
+    {"name": "Environmental Science", "size": 3}
+   ]
+ },
+    {
+     "name": "Math",
+     "children": [
+      {"name": "Modern Geometry", "size": 34},
+      {"name": "Foundations of Math", "size": 82},
+      {"name": "Prob and Stats", "size": 27}
+
+     ]
+    }
+   ]
+ },
+
+ {
+  "name": "Public & Social Services",
+  "children": [
+     {"name": "Law and Legal Studies", "size": 25},
+     {"name": "Military", "size": 19},
+     {"name": "Public Admin", "size": 64},
+     {"name": "Security & Protective Services", "size": 12}
+     ]
+}
+
+
+
+
+
+
+]
+}

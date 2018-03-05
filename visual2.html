@@ -1,0 +1,70 @@
+<html>
+<head>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+	<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Delius+Swash+Caps" />
+  <style type="text/css">
+	.btns {
+			position: fixed;
+			top:250px;
+			left:900px;
+			}
+  </style>
+</head>
+
+<svg width="600" height="600" transform="translate(120,-20)"></svg>
+<div class="intro">My work at Temenos</div>
+<button class="btns" onclick="window.location.replace('visual3.html')"><span>Know more!</span></button>
+
+<script>
+
+    var svg = d3.select("svg"),
+        width = "450",
+        height = "600",
+        g = svg.append("g").attr("transform", "translate(150,0)");
+
+    var tree = d3.cluster()
+        .size([height, width - 160]);
+
+    var stratify = d3.stratify()
+        .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+    d3.csv("work.csv", function(error, data) {
+      if (error) throw error;
+
+      var root = stratify(data)
+          .sort(function(a, b) { return (a.height - b.height) || a.id.localeCompare(b.id); });
+
+      tree(root);
+
+      var link = g.selectAll(".link")
+          .data(root.descendants().slice(1))
+          .enter().append("path")
+          .attr("class", "link")
+          .attr("d", function(d) {
+            return "M" + d.y + "," + d.x
+                + "C" + (d.parent.y + 100) + "," + d.x
+                + " " + (d.parent.y + 100) + "," + d.parent.x
+                + " " + d.parent.y + "," + d.parent.x;
+          });
+
+      var node = g.selectAll(".node")
+          .data(root.descendants())
+          .enter().append("g")
+          .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+          .attr("transform", function(d) { return "translate(" + (d.y) + "," + d.x + ")"; })
+
+      node.append("circle")
+          .attr("r", 3.5);
+
+      node.append("text")
+          .attr("dy", 3)
+          .attr("x", function(d) { return d.children ? -8 : 8; })
+          .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+          .style("font-family","Goudy Old Style, Garamond, Big Caslon, Times New Roman")
+          .style("font-size","16px")
+          .style("font-weight","bold")
+          .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+    });
+
+</script>

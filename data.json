@@ -1,0 +1,45 @@
+[
+    {
+        "categorie": "FALL 2017",
+        "counts": [
+            {
+                "count": 2,
+                "activity": "#COURSEWORK"
+            },
+            {
+                "count": 10,
+                "activity": "TA/RA HOURS"
+            },
+            {
+                "count": 8,
+                "activity": "POTTERY SESSIONS"
+            },
+            {
+                "count": 3,
+                "activity": "BOOKS READ"
+            }
+        ]
+    },
+
+        {
+            "categorie": "SPRING 2018",
+            "counts": [
+                {
+                    "count": 3,
+                    "activity": "#COURSEWORK"
+                },
+                {
+                    "count": 10,
+                    "activity": "TA/RA HOURS"
+                },
+                {
+                    "count": 0,
+                    "activity": "POTTERY SESSIONS"
+                },
+                {
+                    "count": 1.5,
+                    "activity": "BOOKS READ"
+                }
+            ]
+        }
+  ]

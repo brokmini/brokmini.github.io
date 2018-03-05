@@ -1,0 +1,185 @@
+body
+{
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  background-size: cover;
+}
+/*****************************/
+p1
+{
+  font-size: 30px;
+  color:white;
+  position: absolute;
+  top: 150px;
+  left:600px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/*************************/
+.AbtMe
+{
+position: absolute;
+left:50px;
+top:100px;
+}
+
+/************************/
+.btns
+{
+  background-color: #FF69B4;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 20px;
+
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.btns span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btns span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+
+}
+
+.btns:hover{
+  opacity: 0.8;
+}
+
+.btns:hover span {
+  padding-right: 25px;
+
+}
+
+.btns:hover span:after {
+  opacity: 1;
+  right: 0;
+
+}
+
+/*****************************/
+.arc text {
+  font: 13px sans-serif;
+  text-anchor: middle;
+  color:white;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.arc path {
+  stroke: lightgrey;
+}
+
+/***************************************************************************************************************/
+.toolTip {
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+/*######################################################################################################################################################################
+FOR THE SECOND PAGE */
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.label {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
+
+.MyText
+{
+  color:white;
+  font-family: "Delius Swash Caps";
+  position: fixed;
+  top:50px;
+  left:80px;
+  font-size: 30px;
+}
+/*######################################################################################################################################################################
+FOR THE THIRD PAGE */
+
+.node circle {
+  fill:#FF5733;
+}
+
+
+.node--internal circle {
+  fill: #41f4dc;
+}
+
+.node--internal text {
+fill:#d9f442;
+font-weight: bold;
+}
+
+.link {
+  fill: none;
+  stroke:#FF69B4;
+  stroke-width: 1.5px;
+}
+
+/*######################################################################################################################################################################
+FOR THE 4th PAGE */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.intro
+{
+  color:black;
+  font-family: "Delius Swash Caps";
+  position: fixed;
+  top:20px;
+  left:880px;
+  font-size: 50px;
+}
